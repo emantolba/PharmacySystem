@@ -1,0 +1,47 @@
+function update() {
+  db.transaction(function (tx) {
+    tx.executeSql(
+      "update items set   quantity = ?  where name = ? ",
+      [ itemPrice.value * 1,
+        itemQuantity.value ,
+        
+      ],
+      function (tx, result) {
+        alert("Item updated successfully");
+       // clearItemForm();
+        showItems();
+      },
+      function (tx, err) {
+        console.log(err);
+        alert(err.message);
+      }
+    );
+  });
+
+  tx.executeSql("select name from items;", null, function (tx, results) {
+    for (i = 0; i < results.rows.length; i++) {
+      console.log(results.rows[i]);
+      let currentRecord = results.rows[i].name;
+      invoiceType.innerHTML +=
+        `<option value= "` +
+        currentRecord +
+        `">` +
+        currentRecord +
+        `</option>`;
+    }
+  });
+
+
+  //////////////////////
+
+  tx.executeSql(
+    "select quantity from items  where name = ? ",
+    [invoiceType.value],
+    function (tx, result) {
+      alert("Item updated successfully");
+      console.log(result.rows[0])
+      // clearItemForm();
+      // console.log(${currentRecord.id});
+    },
+    
+  );

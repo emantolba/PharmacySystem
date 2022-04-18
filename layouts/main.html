@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <script defer src="../scripts/script.js"></script>
+    <title>Pharmacy</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1> </h1>
+        <section id="sec1">
+            <h3>Login</h3>
+            <form action="#sec2">
+                <div class="form">
+                    <label for="">User Name :</label>
+                    <input type="text" id="name">
+                </div>
+
+                <br> <br>
+                <div class="form">
+                    <label for="">User ID :</label>
+                    <input type="text" id="id">
+                </div>
+
+                <br> <br>
+                <a href="#sec2" onclick="login()">login</a>
+
+            </form>
+        </section>
+        <section id="sec2">
+            <article>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Price
+                            </th>
+
+                            <th>
+                                Quantity
+                            </th>
+                            <th>
+                                Image
+                            </th>
+
+                            <th>
+                                action
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody id=tabledata></tbody>
+                </table>
+            </article>
+            <div class="form">
+                <label for="">ID:</label>
+                <input type="text" id="item_id">
+                <br> <br>
+                <label for="">Name :</label>
+                <input type="text" id="itme_name">
+                <br> <br>
+                <label for="">price :</label>
+                <input type="text" id="item_price">
+                <br> <br>
+                <label for="">quantity :</label>
+                <input type="text" id="item_quantity">
+                <br> <br>
+                <label for="">photo:</label>
+
+                <video autoplay="true" id="videoElement">
+
+                </video>
+                <input type="button" value="take photo" id="takePhoto">
+                <input type="button" value="open Camera" onclick="opencam()">
+                <input type="button" value="stop camera" onclick="stop()">
+                <canvas id="canvas">
+                    <div class="output">
+                        <img id="photo" alt="The screen capture will appear in this box.">
+                    </div>
+                    <a href="" id="a"></a>
+                </canvas>
+
+                <br> <br>
+                <input type="button" value="Add Item" id="add" class="btn" onclick="addItem()">
+                <input type="button" value="Update Data" id="update" class="btn" onclick="update()">
+            </div>
+        </section>
+        <section id="sec3">
+            <div class="admin">
+                <input type="button" value="Add user" class="btn" onclick="addUser()">
+                <br> <br>
+                <input type="button" value="remove User" class="btn" onclick="removeUser()">
+                <div id="remove">
+                    <br> <br>
+                    <label for="">User ID:</label>
+                    <input type="number" id="removeId">
+                    <br><br>
+                    <input type="button" value="remove" class="btn" id="removeIdBtn">
+                </div>
+                <div id="addUser">
+                    <div class="form">
+                        <label for="">User Name :</label>
+                        <input type="text" id="userName">
+                    </div>
+
+                    <br> <br>
+                    <div class="form">
+                        <label for="">User ID :</label>
+                        <input type="text" id="userId">
+                    </div>
+                    <br> <br>
+                    <input type="button" id="addUserBtn" class="btn" value="add">
+
+                </div>
+            </div>
+
+        </section>
+        <section id="sec4">
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Customer Name
+                            </th>
+
+                            <th>
+                                type
+                            </th>
+
+                            <th>
+                                item
+                            </th>
+                            <th>
+                                quantitiy
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody id=invoice></tbody>
+
+                </table>
+            </div>
+            <br> <br>
+            <input type="button" value="add" class="btn" id="add_invoice">
+            <div id="addInvoice">
+
+                <label for="">Cutomer Name :</label>
+                <input type="text" id="invoiceName">
+                <br> <br>
+
+
+
+                <div id="parentItem">
+                    <br> <br>
+                    <label for="">Type :</label>
+                    <label for="">sell</label>
+                    <input type="radio" id="sell" name="type" value="sell">
+                    <label for=""> buy</label>
+                    <input type="radio" id="buy" name="type" value="buy">
+                    <br><br>
+                    <label for="">Items :</label>
+                    <select name="items" id="invoiceType">
+                        <option>select item</option>
+                    </select>
+
+                    <label for="">Quantity:</label>
+                    <input type="text" id="invoiceQuantity">
+                </div>
+                <br> <br>
+                <input type="button" value="next item" class="btn" id="addAnotherItem">
+                <br><br>
+                <input type="button" value="Add Invoice" class="btn" onclick="addInvoice()">
+
+            </div>
+
+        </section>
+
+    </div>
+</body>
+
+</html>
